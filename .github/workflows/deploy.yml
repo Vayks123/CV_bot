@@ -13,9 +13,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - run: echo "TOKEN=${{secrets.TOKEN}}" > .env
-      - uses: CDNievas/heroku-action@v1.0
-        with:
-          heroku_email: "sergybibik1234@gmail.com"
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "my-cv-bot"
-          procfile: "worker: python3 main.py",
+   
