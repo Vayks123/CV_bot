@@ -12,7 +12,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - run: echo "TOKEN=${{env.TOKEN}}" > .env
+      - run: echo "TOKEN=${{secrets.TOKEN}}" > .env
       - uses: CDNievas/heroku-action@v1.0
         with:
           heroku_email: "sergybibik1234@gmail.com"
