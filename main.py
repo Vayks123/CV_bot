@@ -2,9 +2,7 @@ import asyncio
 import os
 
 from aiogram import Bot, Dispatcher, types
-from dotenv import find_dotenv, load_dotenv
 
-load_dotenv(find_dotenv())
 
 from handlers.user import user_router
 
