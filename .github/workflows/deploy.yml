@@ -18,5 +18,6 @@ jobs:
           heroku_app_name: "my-cv-bot"
           heroku_email: "sergybibik1234@gmail.com"
           procfile: "worker: python3 main.py"
-          env:  TOKEN=${{secrets.TOKEN}}
+          env: 
+            TOKEN: ${{secrets.TOKEN}}
    
