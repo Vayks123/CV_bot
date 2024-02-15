@@ -2,10 +2,7 @@ import asyncio
 import os
 
 from aiogram import Bot, Dispatcher, types
-<<<<<<< HEAD
-=======
 
->>>>>>> ee4ac70a471027fe19f0e281c572646dda713b6a
 
 from handlers.user import user_router
 
