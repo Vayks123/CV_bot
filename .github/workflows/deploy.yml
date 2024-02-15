@@ -1,6 +1,7 @@
 name: deploy
 on: workflow_dispatch
 jobs:
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -8,11 +9,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10' 
+
+      - name: Cache dependences
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - name: Install requirements
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - run: pytest -v test_handlers.py
+        run: pip install -r requirements.txt
+
+      - name: Run test
+        run: pytest -v test_handlers.py
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+        
+      - name: Cache dependences
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Install requirements
+        run: pip install -r requirements.tx
+
       - uses: akhileshns/heroku-deploy@v3.13.15 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
