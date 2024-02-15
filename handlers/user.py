@@ -19,7 +19,7 @@ async def about(message: types.Message):
 
 @user_router.message(or_f(Command("links"), (F.text.lower() == "links")))
 async def links(message: types.Message):
-    await message.answer(text=mylinks)
+   await message.answer(text=mylinks)
 
 
 @user_router.message(or_f(Command("skills"), (F.text.lower() == "skills")))
