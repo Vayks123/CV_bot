@@ -41,7 +41,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Install requirements
-        run: pip install -r requirements.tx
+        run: pip install -r requirements.txt
 
       - uses: akhileshns/heroku-deploy@v3.13.15 
         with:
