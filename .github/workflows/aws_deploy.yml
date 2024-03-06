@@ -56,17 +56,15 @@ jobs:
       - name: Terraform download
         uses: hashicorp/setup-terraform@v3 
           
-      - name: Change directory
-        run:   cd terraform 
-        
       - name: Terraform Init
-        run: terraform init && ls -Al
+        run: terraform -chdir=terraform init 
 
       - name: Terraform Validate
-        id: validate
-        run: terraform validate -no-color
+        run: terraform -chdir=terraform validate -no-color
 
       - name: Terraform Plan
-        id: plan
-        run: terraform plan -no-color
+        run: terraform -chdir=terraform plan -no-color
+
+      - name: Terraform Apply
+        run: terraform  -chdir=terraform apply --auto-approve
 
