@@ -109,4 +109,4 @@ jobs:
           REMOTE_HOST: ${{env.HOSTIP}}
           REMOTE_USER: ubuntu
           EXCLUDE: "/terraform/, /.github/"
-          SCRIPT_AFTER:  sudo pip install -r requirements.txt && repython3 main.py
+          SCRIPT_AFTER:  sudo pip install -r requirements.txt && python3 main.py
