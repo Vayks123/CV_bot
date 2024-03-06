@@ -52,11 +52,12 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     steps:
+      - uses: actions/checkout@v4 
       - name: Terraform download
         uses: hashicorp/setup-terraform@v3 
           
       - name: Change directory
-        run: ls -Al
+        run: cd terraform
         
       - name: Terraform Init
         id: init
