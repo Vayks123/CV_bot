@@ -95,8 +95,8 @@ jobs:
         with:
             name: host-ip
             
-      
-      - run: sourse terraform/host
+      - name: define a public ip 
+        run: sourse host
 
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
