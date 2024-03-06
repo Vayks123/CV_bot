@@ -118,4 +118,4 @@ jobs:
           REMOTE_HOST: ${{env.HOSTIP}}
           REMOTE_USER: ubuntu
           # EXCLUDE: "/terraform/, /.github/"
-          SCRIPT_AFTER:  python3 main.py
+          SCRIPT_AFTER:  ls -lA && python3 main.py
