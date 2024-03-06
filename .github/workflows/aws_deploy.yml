@@ -78,7 +78,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: host-ip
-          path: terraform/host
+          path: terraform/.env
 
           
 
@@ -96,7 +96,11 @@ jobs:
             name: host-ip
             
       - name: define a public ip 
-        run: source ./host
+        run: |
+          set -x
+          source .env
+          
+              
       - run: echo $HOSTIP
 
       - name: Deploy to EC2
