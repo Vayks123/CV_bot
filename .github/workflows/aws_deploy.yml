@@ -98,7 +98,7 @@ jobs:
       - name: define a public ip 
         run: cat .env >> $GITHUB_ENV
           
-              
+        
       - run: echo $HOSTIP
 
       - name: Deploy to EC2
