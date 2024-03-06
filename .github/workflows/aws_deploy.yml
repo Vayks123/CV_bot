@@ -94,10 +94,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
             name: host-ip
-            path: $GITHUB_WORKSPACE/host
             
       - name: define a public ip 
-        run: source $GITHUB_WORKSPACE/host
+        run: source host
       - run: echo $HOSTIP
 
       - name: Deploy to EC2
