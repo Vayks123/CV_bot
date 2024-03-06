@@ -96,9 +96,7 @@ jobs:
             name: host-ip
             
       - name: define a public ip 
-        run: |
-          set -x
-          source .env
+        run: cat .env >> $GITHUB_ENV
           
               
       - run: echo $HOSTIP
