@@ -97,6 +97,7 @@ jobs:
             
       - name: define a public ip 
         run: source $GITHUB_WORKSPACE/host
+      - run: echo $HOSTIP
 
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
