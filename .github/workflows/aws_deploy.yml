@@ -117,5 +117,5 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{env.HOSTIP}}
           REMOTE_USER: ubuntu
-          # EXCLUDE: "/terraform/, /.github/"
-          SCRIPT_AFTER:  ls -lA && python3 main.py
+          EXCLUDE: "/terraform/, /.github/"
+          SCRIPT_AFTER:  sudo pip install -r requirements.txt && repython3 main.py
