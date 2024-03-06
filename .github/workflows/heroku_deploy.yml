@@ -1,4 +1,4 @@
-name: deploy
+name: deploy_heroki
 on: workflow_dispatch
 jobs:
   
