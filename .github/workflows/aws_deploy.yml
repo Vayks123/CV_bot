@@ -96,7 +96,7 @@ jobs:
             name: host-ip
             
       - name: define a public ip 
-        run: source host
+        run: source ./host
       - run: echo $HOSTIP
 
       - name: Deploy to EC2
