@@ -57,7 +57,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3 
           
       - name: Change directory
-        run: cd terraform
+        run:  set -x && cd terraform && ls -Al
         
       - name: Terraform Init
         id: init
