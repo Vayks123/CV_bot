@@ -106,7 +106,6 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "./"
           REMOTE_HOST: ${{env.HOSTIP}}
           REMOTE_USER: ubuntu
           EXCLUDE: "/terraform/, /.github/"
