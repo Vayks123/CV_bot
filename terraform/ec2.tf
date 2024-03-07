@@ -10,7 +10,7 @@ resource "aws_instance" "telegram_bot" {
   }
 
   provisioner "local-exec" {
-    command = "echo 'HOSTIP=${aws_instance.telegram_bot.public_ip}' > .env"
+    command = "echo 'HOSTIP=${aws_instance.telegram_bot.public_ip}' > .env_hostip"
   }
 }
 
