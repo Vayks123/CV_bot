@@ -1,6 +1,6 @@
 #!/bin/env bash
 set -x
-set -e
+# set -e
 
 python3 --version
 pip --version
