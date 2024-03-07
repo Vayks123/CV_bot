@@ -109,7 +109,7 @@ jobs:
           echo $HOSTIP
           echo $TOKEN
           ls -l
-          cat .env
+        
 
 
       - name: Deploy to EC2
