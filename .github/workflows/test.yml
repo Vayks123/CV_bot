@@ -40,7 +40,7 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt      
             
-      - uses: jakebailey/pyright-action@v2
+      - run: pylint main.py
 
 
 
