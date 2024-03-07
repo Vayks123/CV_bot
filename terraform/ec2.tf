@@ -9,8 +9,9 @@ resource "aws_instance" "telegram_bot" {
     Name = "telegram bot"
   }
 
-  provisioner "local-exec" {
-    command = "echo 'HOSTIP=${aws_instance.telegram_bot.public_ip}' > .env_hostip"
-  }
+
 }
 
+output "hostip" {
+  value = aws_instance.telegram_bot.public_ip
+}
