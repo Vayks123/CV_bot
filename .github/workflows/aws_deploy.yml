@@ -73,6 +73,9 @@ jobs:
 
       - name: Terraform Apply
         run: terraform  -chdir=terraform apply --auto-approve
+      
+      - name: Terraform output host ip
+        run: terraform output hostip |  tr -d '"' > .env_hostip
 
     
       - uses: actions/upload-artifact@v4
