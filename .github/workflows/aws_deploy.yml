@@ -127,7 +127,7 @@ jobs:
           REMOTE_HOST: ${{env.HOSTIP}}
           REMOTE_USER: ubuntu
           SOURCE: systemd/telegrambot.service
-          REMOTE_TARGET: /tmp/
+          TARGET: /tmp/
           
           
         
