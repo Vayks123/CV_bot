@@ -3,12 +3,11 @@ import os
 
 from aiogram import Bot, Dispatcher, types
 
-# from datebase.engine import create_db, drop_db
 from handlers.user import user_router
 
-# from dotenv import find_dotenv, load_dotenv
-#
-# load_dotenv(find_dotenv())
+from dotenv import find_dotenv, load_dotenv
+
+load_dotenv(find_dotenv())
 
 
 ALLOWED_UPDATES = ["message", "edited_message"]
@@ -18,19 +17,11 @@ dp = Dispatcher()
 dp.include_routers(user_router)
 
 
-# async def on_startup(bot):
-#
-#     run_param = False
-#     if run_param:
-#         await drop_db()
-#
-#     await create_db()
-#
+
 
 
 async def main():
-    # dp.startup.register(on_startup)
-    #
+    
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=ALLOWED_UPDATES)
 
