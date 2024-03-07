@@ -1,8 +1,11 @@
 #!/bin/env bash
-set -x
-# set -e
+
+sudo apt install -y python3-venv
 
 python3 --version
-/bin/pip3 install -r requirements.txt
-killall python3
+
+python3 -m venv venv
+source venv/bin/activate 
+pip3 install -r requirements.txt
+# killall python3 
 python3 main.py
