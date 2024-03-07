@@ -3,8 +3,8 @@ set -x
 # set -e
 
 python3 --version
-pip 
-sudo pip install -r requirements.txt
+pip3
+sudo pip3 install -r requirements.txt
 killall python3
 ls -lA
 python3 main.py
