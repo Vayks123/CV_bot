@@ -10,7 +10,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 
 sudo sudo systemctl daemon-reload
-sudo systemctl start your_unit
-sudo systemctl enable your_unit
-sudo systemctl status your_unit
+sudo systemctl start telegrambot.service
+sudo systemctl enable telegrambot.service
+sudo systemctl status telegrambot.service
 
