@@ -22,5 +22,5 @@ Education Kharkiv National University of Radio Electronics(2021 - 2025)
 
 I am interested in the world of IT technologies and understanding how it all works, \
 that's why I decided to choose the profession of a devops engineer, as it will combine \
-all areas in IT that interest me.
+all areas in IT that interest me..
 """
