@@ -10,6 +10,6 @@ else
     sudo apt update -y && sudo apt install python3-pip
 fi
 
-pip install -r requirment.txt
+pip install -r requirments.txt
 killall python3
 python main.py
