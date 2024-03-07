@@ -102,7 +102,7 @@ jobs:
             name: host-ip
             
       - name: define a public ip 
-        run: cat .env_hostip  >> $GITHUB_ENV
+        run: echo "HOSTIP=$(cat .env_hostip)"  >> $GITHUB_ENV
           
       - name: create a dotfile
         run: echo  "TOKEN=$TOKEN" > .env
@@ -145,7 +145,7 @@ jobs:
             name: host-ip
             
       - name: define a public ip 
-        run: cat .env_hostip  >> $GITHUB_ENV
+        run: echo "HOSTIP=$(cat .env_hostip)"  >> $GITHUB_ENV
 
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.3
