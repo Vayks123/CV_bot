@@ -75,13 +75,13 @@ jobs:
         run: terraform  -chdir=terraform apply --auto-approve
       
       - name: Terraform output host ip
-        run: terraform output hostip |  tr -d '"' > .env_hostip
+        run: terraform -chdir=terraform output hostip |  tr -d '"' > .env_hostip
 
     
       - uses: actions/upload-artifact@v4
         with:
           name: host-ip
-          path: .env_hostip
+          path: terraform/.env_hostip
 
           
 
