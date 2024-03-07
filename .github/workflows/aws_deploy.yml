@@ -83,7 +83,7 @@ jobs:
           
 
 
-  deploy: 
+  deploy_code: 
     runs-on: ubuntu-latest
     needs: deploy-infrastructure
     env:
@@ -102,11 +102,12 @@ jobs:
         run: cat .env_hostip  >> $GITHUB_ENV
           
       - name: create a dotfile
-        run: echo  "TOKEN=${{env.TOKEN}}" > .env
+        run: echo  "TOKEN=$TOKEN" > .env
           
         
       - run: |
           echo $HOSTIP
+          echo $TOKEN
           ls -l
           cat .env
 
@@ -117,5 +118,28 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{env.HOSTIP}}
           REMOTE_USER: ubuntu
-          EXCLUDE: "/terraform/, /.github/"
+          EXCLUDE: "/terraform/, /.github/, /.git/, /.gitignore/"
+        
+  run_code:
+    runs-on: ubuntu-latest
+    needs: deploy_code
+    steps:
+
+      - name: Download an artifact
+        uses: actions/download-artifact@v4
+        with:
+            name: host-ip
+            
+      - name: define a public ip 
+        run: cat .env_hostip  >> $GITHUB_ENV
+
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ env.HOSTIP }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: bash scripts/startup.sh
+
           
